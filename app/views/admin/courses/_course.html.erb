@@ -3,7 +3,7 @@
   <td><%= course.name %></td>
   <td><%= course.user_name %></td>
   <% image = course.image.attached? ? course.image : "default" %>
-  <td><%= image_tag image, class: "mx-auto img-fluid img-circle d-block image-admin-course" %></td>
+  <td><%= image_tag image, class: "img-user-admin" %></td>
   <td><%= course.description %></td>
   <td>
     &ensp; 

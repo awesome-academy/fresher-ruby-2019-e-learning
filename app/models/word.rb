@@ -1,7 +1,7 @@
 class Word < ApplicationRecord
-  belongs_to :course
   has_many :questions, dependent: :destroy
   has_many :learnings, dependent: :destroy
+  belongs_to :course, dependent: :destroy
   validates :name, presence: true,
     length: {maximum: Settings.words.max_length}
   validates :pronounce, presence: true,

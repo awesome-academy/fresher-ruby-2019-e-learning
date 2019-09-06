@@ -1,6 +1,7 @@
 //= require jquery
 //= require rails-ujs
 //= require popper
+//= require course
 //= require bootstrap
 //= require activestorage
 //= require turbolinks

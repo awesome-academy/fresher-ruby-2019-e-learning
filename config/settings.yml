@@ -1,5 +1,6 @@
 users:
-  size: 200x200
+  size: 180
+  limit_follower: 10
   paging:
     paging_number: 10
   email:
@@ -30,12 +31,14 @@ words:
 theme:
   paging: 'twitter-bootstrap-4'
 courses:
-  paging:
-    page_number: 10
-courses:
+  number: 3
+  length_description: 40
+  length_name: 15
   paging:
     page_number: 10
 questions:
   paging:
     paging_number: 10
   answer: 4
+excercises:
+  random_number: 1

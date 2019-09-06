@@ -21,8 +21,12 @@ en:
       logout: "Logout"
       e_learning: "E learning"
     header:
+      edu: "Edu"
+      ht: "Hc"
+      start_excercise: "Start excercise"
+      word_list: "Word list"
+      courses: "Courses"
       e_learning: "E-Learning"
-      search: "Search"
       admin: "Admin"
       profile: "Profile"
       logout: "Logout"
@@ -38,11 +42,14 @@ en:
       change_profile: "Change profile"
     update:
       update_success: "Update success"
-      update_fail: "Update fail"
     follow:
       follow: "Follow"
     unfollow:
       unfollow: "Unfollow"
+    following:
+      following: "Following"
+    followers:
+      follower: "Follower"
     form:
       already_account: "Already have an account?"
   shared:
@@ -210,4 +217,21 @@ en:
         save: "Save"
   courses:
     course:
+      learn: "Learn"
       start: "Start"
+  excercises:
+    index:
+     create_excercise: "Create excercise"
+     list_excercises: "List excercises"
+    edit:
+      submit: "Submit"
+    form:
+      create: "Create"
+    excercise:
+      start: "Start"
+  excercises:
+    index:
+     create_excercise: "Create excercise"
+     list_excercises: "List excercises"
+    form:
+      create: "Create"

@@ -2,18 +2,6 @@
   <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
     <i class="fa fa-bars"></i>
   </button>
-
-  <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-    <div class="input-group">
-      <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-      <div class="input-group-append">
-        <button class="btn btn-primary" type="button">
-          <i class="fa fa-search fa-sm"></i>
-        </button>
-      </div>
-    </div>
-  </form>
-
   <ul class="navbar-nav ml-auto">
     <div class="topbar-divider d-none d-sm-block"></div>
     <li class="nav-item dropdown no-arrow">
@@ -23,16 +11,8 @@
         <%= image_tag image, class: "img-profile rounded-circle w-40" %>
       </a>
       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-        <%= link_to admin_path, class: "dropdown-item" do %>
-          <i class="fa fa-home fa-sm fa-fw mr-2 text-black-400"></i>
-          <%= t ".dashboard" %>
-        <% end %>
-        <%= link_to current_user, class: "dropdown-item" do %>
-          <i class="fa fa-user fa-sm fa-fw mr-2 text-black-400"></i>
-          <%= t ".profile" %>
-        <% end %>
         <div class="dropdown-divider"></div>
-        <%= link_to user_path(current_user), method: :delete, class: "dropdown-item" do %>
+        <%= link_to admin_user_path(current_user), method: :delete, class: "dropdown-item" do %>
           <i class="fa fa-sign-out fa-sm fa-fw mr-2 text-black-400"></i>
           <%= t(".sign_out") %>
         <% end %>

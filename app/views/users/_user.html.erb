@@ -1,0 +1,5 @@
+<li>
+  <% avatar = user.avatar.attached? ? user.avatar : "Rose.jpg" %>
+  <%= link_to image_tag(avatar), user_path(user) %>
+  <%= user.name %>
+</li>

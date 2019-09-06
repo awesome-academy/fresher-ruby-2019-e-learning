@@ -1,0 +1,12 @@
+<tr>
+  <td><%= date_convert excercise.created_at %></td>
+  <td><%= excercise.course_name %></td>
+  <td><%= excercise.result %></td>
+  <% if excercise.result.zero? %>
+    <td><%= excercise.status %></td>
+    <td><%= link_to t(".start"), edit_excercise_path(excercise), class: "btn btn-info" %></td>
+  <% else %>
+    <td><%= excercise.result %> / <%= excercise.questions.size %></td>
+    <td><%= link_to t(".view"), excercise_path(excercise), class: "btn btn-info" %></td>
+  <% end %>
+</tr>

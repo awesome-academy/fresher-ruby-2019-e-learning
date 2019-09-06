@@ -1,0 +1,24 @@
+<div class="list_excercises">
+  <div class="container details_container">
+    <div class="new_excercise">
+      <%= link_to t(".create_excercise"), new_excercise_path, class: "btn btn-outline-primary", id: "new_link" %>
+    </div>
+    <div class="row">
+      <h1><%= t ".list_excercises" %></h1>
+    </div>
+    <table class="table table-bordered table-hover" id="excercises">
+      <thead>
+        <tr>
+          <th><%= t ".date" %></th>
+          <th><%= t ".course" %></th>
+          <th><%= t "result" %></th>
+          <th><%= t ".status" %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="all_excercises">
+        <%= render partial: "excercise", collection: @excercises, as: :excercise %>
+      </tbody>
+    </table>
+  </div>
+</div>

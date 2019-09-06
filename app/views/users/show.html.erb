@@ -6,16 +6,16 @@
             <div class="row">
               <div class="col-md-4">
                 <div class="courses_title"><%= @user.name %></div>
-                  <% avatar = @user.avatar.attached? ? @user.avatar : "jennie.png" %>
+                  <% avatar = @user.avatar.attached? ? @user.avatar : "Rose.jpg" %>
                   <%= image_tag avatar, size: Settings.users.size %>
                 </div>
-              <% if !current_user?(@user) %>
-                <%= render "form_follow" %>
-              <% else %>
+              <% if current_user? @user %>
                 <%= link_to t(".edit"), edit_user_path, class:"btn btn-primary btn-edit" %>
+              <% else %>
+                <%= render "follow_form" %>
               <% end %>
-
             </div>
+            <%= render "shared/stats" %>
             <!-- Tabs -->
             <div class="course_tabs_container">
               <div class="tabs d-flex flex-row align-items-center justify-content-start">

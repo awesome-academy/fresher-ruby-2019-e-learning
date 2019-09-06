@@ -3,7 +3,7 @@ class User < ApplicationRecord
   before_save :downcase_email
   before_create :create_activation_digest
 
-  has_many :results, dependent: :destroy
+  has_many :excercises, dependent: :destroy
   has_many :courses, dependent: :destroy
   has_many :learnings, dependent: :destroy
   has_many :active_relationships, class_name: Relationship.name,
@@ -27,6 +27,7 @@ class User < ApplicationRecord
   
   USER_PARAMS = %i(name email avatar password password_confirmation).freeze
   ADMIN_USER_PARAMS = %i(name email avatar password password_confirmation is_admin).freeze
+
   has_secure_password
 
   def authenticated? attribute, token

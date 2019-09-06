@@ -26,19 +26,14 @@ User.create!(
   is_admin: true
 )
 
-users = User.all
-user  = users.first
-following = users[2..10]
-followers = users[3..8]
-following.each { |followed| user.follow(followed) }
-followers.each { |follower| follower.follow(user) }
 10.times do |n|
   Course.create!(
-    name: FFaker::CompanyIT.name,
-    description: FFaker::Book.author,
+    name: FFaker::Book.author,
+    description: FFaker::CompanyIT.name,
     user_id: users.ids.sample
   )
 end
+courses = Course.all.ids
 10.times do 
   Word.create!(
     course_id: courses.sample,

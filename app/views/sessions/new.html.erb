@@ -1,23 +1,40 @@
 <% provide :title, t(".login") %>
-<h1><%= t ".login" %></h1>
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
       <%= form_for :session, url: login_path do |f| %>
-        <%= f.label :email %>
-        <%= f.email_field :email, class: "form-control" %>
-        <%= f.label :password %>
-        <%= f.password_field :password, class: "form-control" %>
-        <%= f.label :remember_me, class: "checkbox inline" do %>
-          <%= f.check_box :remember_me  %>
-          <%= content_tag :span, t(".remember_me") %>
-        <% end %>
-        <%= link_to t(".forgot_password"), new_password_reset_path, class: "btn btn-link" %>
-        <%= f.submit t(".login"), class: "btn btn-primary btn-block" %>
-        <%= t ".don't_account" %>
-        <%= link_to  t(".signup"), new_user_path, class: "btn btn-link" %>
-      <% end %>
-      <%= link_to t(".signin_with_facebook"), facebook_path, class:  "btn btn-primary btn-block"%>
+        <span class="login100-form-title p-b-26">
+          <%= t".welcome" %>
+        </span>
+          <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input100" %>
+            <span class="focus-input100" data-placeholder="Email"></span>
+          </div>
+          <%= link_to t(".forgot_password"), new_password_reset_path, class: "btn btn-link" %>
+          <div class="wrap-input100 validate-input" data-validate="Enter password">
+            <%= f.password_field :password, autocomplete: "current-password", class: "input100" %>
+            <span class="focus-input100" data-placeholder="Password"></span>
+          </div>
+          <%= f.label :remember_me, class: "checkbox inline" do %>
+            <%= f.check_box :remember_me  %>
+            <%= content_tag :span, t(".remember_me") %>
+          <% end %>
+          <div class="container-login100-form-btn">
+            <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
+              <%= f.button t(".login"), class: "login100-form-btn" %>
+            </div>
+          </div>
+          <% end %>
+          <div class="text-center p-t-20">
+          <div class="row justify-content-center">
+            <%= link_to t(".signin_with_facebook"), facebook_path, class:  "btn btn-primary"%>
+          </div>
+            <span class="txt1">
+              <%= t".have_an_acc?" %>
+              <%= link_to  t(".signup"), new_user_path, class: "btn btn-link" %>
+            </span>
+          </div>
+      </div>
     </div>
   </div>
-</div>

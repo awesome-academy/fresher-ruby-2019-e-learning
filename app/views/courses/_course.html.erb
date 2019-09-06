@@ -6,10 +6,13 @@
     </div>
     <div class="course_body">
       <h3 class="course_title">
-        <%= course.name %>
+        <%= truncate course.name, length: Settings.courses.length_name %>
       </h3>
       <div class="course_text">
-        <p><%= course.description %></p>
+        <p>
+          <%= truncate course.description,
+           length: Settings.courses.length_description %>
+        </p>
       </div>
     </div>
     <div class="course_footer">
@@ -21,11 +24,19 @@
         </div>
        <div class="course_info">
           <i class="fa fa-star" aria-hidden="true"></i>
-          <span><%= "course.words_size" %> <%= t ".word" %></span>
+          <span><%= course.words.size %> <%= t ".word" %></span>
         </div>
-        <% if logged_in? %>
+        <% if @current_user %>
+          <div class="lesson">
+            <%= form_for @current_user.excercises.build do |f| %>
+              <%= f.hidden_field :course_id, value: course.id %>
+              <div class="course_price ml-auto">
+                <%= f.submit t(".start"), class: "btn btn-parimary btn_start" %>
+              </div>
+            <% end %>
+          </div>
           <div class="course_price ml-auto">
-            <%= link_to t(".start"), "#", class: "btn btn-primary btn-start" %>
+            <%= button_tag t(".start"), class: "btn btn-primary" %>
           </div>
         <% else %>
           <div class="course_price ml-auto">

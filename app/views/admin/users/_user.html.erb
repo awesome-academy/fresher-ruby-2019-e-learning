@@ -2,19 +2,21 @@
   <td><%= index_of_list @users, user_counter %></td>
   <td><%= user.name %></td>
   <td><%= user.email %></td>
-  <% avatar = user.avatar.attached? ? user.avatar : "default" %>
+  <% avatar = user.avatar.attached? ? user.avatar : "Rose.jpg" %>
   <td><%= image_tag avatar, class: "mx-auto img-fluid img-circle d-block img-user-admin" %></td>
   <% role = user.is_admin? ? "admin" : "member" %>
   <td><%= role %></td>
   <td>
     &ensp; 
-    <%= link_to edit_admin_user_path(user), class: "btn btn-warning" do %>
-      <i class="fa fa-edit"></i>
-    <% end %>
-    &ensp;
-    <%= link_to admin_user_path(user), method: :delete,
-      data: { confirm: t(".are_you_sure?") }, class: "btn btn-danger" do %>
-      <i class="fa fa-trash"></i>
+    <% unless user.is_admin? %>
+      <%= link_to edit_admin_user_path(user), class: "btn btn-warning" do %>
+        <i class="fa fa-edit"></i>
+      <% end %>
+      &ensp;
+      <%= link_to admin_user_path(user), method: :delete,
+        data: { confirm: t(".are_you_sure?") }, class: "btn btn-danger" do %>
+        <i class="fa fa-trash"></i>
+      <% end %>
     <% end %>
   </td>
 </tr>
