@@ -7,11 +7,12 @@ class FacebooksController < ApplicationController
     details = get_information_user access_token
     user = User.find_by email: details["email"]
 
-    unless user
+    if user.present?
+      user.update! access_token: access_token if user.present?
+    else
       user = User.create email: details["email"], name: details["name"], password: SecureRandom.urlsafe_base64, access_token: access_token
       user.activate
     end
-    user.update! access_token: access_token if user.present?
     login user
     redirect_to user_path(user)
   end

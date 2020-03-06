@@ -1,75 +1,23 @@
-<div class="course">
-   <div class="container">
+<div class="container">
+  <div class="details_container">
+    <div class="row">
       <div class="row">
-        <!-- Course-container -->
-          <div class="details_container">
-            <div class="row">
-              <div class="col-md-4">
-                <div class="courses_title"><%= @user.name %></div>
-                  <% avatar = @user.avatar.attached? ? @user.avatar : "jennie.png" %>
-                  <%= image_tag avatar, size: Settings.users.size %>
-                </div>
-              <% if !current_user?(@user) %>
-                <%= render "form_follow" %>
-              <% else %>
-                <%= link_to t(".edit"), edit_user_path, class:"btn btn-primary btn-edit" %>
-                &ensp;
-                <%= link_to t(".learned_word", quantity: @user.learnings.size), view_word_path, class:"btn btn-primary btn-edit" %>
-              <% end %>
-
-            </div>
-            <!-- Tabs -->
-            <div class="course_tabs_container">
-              <div class="tabs d-flex flex-row align-items-center justify-content-start">
-                <div class="tab"><%= t".study_history" %></div>
-                <div class="tab"><%= t".activities" %></div>
-              </div>
-
-             <!-- Tab panels -->
-              <div class="tab_panels">
-
-                <!-- Learned course -->
-                <div class="tab_panel">
-                  <div class="tab_panel_title"><%= t".summary" %></div>
-                  <div class="tab_panel_content">
-                    <div class="tab_panel_text">
-                    </div>
-                    <div class="tab_panel_section">
-                      <div class="tab_panel_subtitle"></div>
-                      <ul class="tab_panel_bullets">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                      </ul>
-                    </div>
-                    <div class="tab_panel_section">
-                      <div class="tab_panel_subtitle"></div>
-                      <div class="tab_panel_text">
-                        <p></p>
-                      </div>
-                    </div>
-                    <div class="tab_panel_faq">
-                      <div class="tab_panel_title"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Following activities -->
-                <div class="tab_panel tab_panel_2">
-                  <div class="comments_container">
-                    <ul class="comments_list">
-                    </ul>
-
-                  </div>
-                </div>
-
-              </div>
-            <!-- Tab panels -->
+        <div class="col">
+          <div class="courses_title"><%= @user.name %></div>
+            <%= image_tag load_avatar(@user), size: Settings.users.size %>
+            <%= render "shared/stats" %>
           </div>
-          <!-- Course-tab-container -->
-       </div>
-       <!-- Course-container -->
-</div>
-</div>
+        </div>
+        <div class="col">
+          <% if !current_user?(@user) %>
+            <%= render "form_follow" %>
+          <% else %>
+            <%= link_to t(".edit"), edit_user_path, class:"btn btn-primary btn-edit" %>
+            &ensp;
+            <%= link_to t(".learned_word", quantity: @user.learnings.size), view_word_path, class:"btn btn-primary btn-edit" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

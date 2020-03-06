@@ -19,6 +19,7 @@ class ExercisesController < ApplicationController
   def create
     params[:exercise][:user_id] = current_user.id
     course_id = params[:exercise][:course_id].to_i
+    
     ActiveRecord::Base.transaction do 
       @exercise = Exercise.create exercise_params
       ExerciseService.new(@exercise, course_id,
@@ -30,6 +31,10 @@ class ExercisesController < ApplicationController
       format.js
     end
     redirect_to exercises_path
+  end
+
+  def edit
+    byebug
   end
 
   def update
@@ -60,10 +65,10 @@ class ExercisesController < ApplicationController
       @exercise_details = @exercise.exercise_details
     else
       flash[:danger] = t ".not_found"
+      redirect_to exercises_path
     end
-    redirect_to exercises_path
   end
-
+  
   def correct_answers
     ExerciseService.new(@exercise, @exercise.course_id,
       Settings.exercises.default).get_correct_answers
