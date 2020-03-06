@@ -26,15 +26,12 @@
                     </a>
                     <ul class="dropdown-menu">
                       <li class="dropdown-item"><%= link_to t(".profile"), current_user %></li>
-                      <li class="dropdown-item"><%= link_to t(".lessons"), "lessons_path" %></li>
                       <div class="dropdown-divider"></div>
                       <li class="dropdown-item">
                         <%= link_to t(".logout"), logout_path, method: :delete %>
                       </li>
                     </ul>
                   </li>
-                  <div class="search_button"><i class="fa fa-search"
-                   aria-hidden="true"></i></div>
                 <% else %>
                   <li class="link">
                     <%= link_to t(".login"), login_path %>
@@ -50,21 +47,5 @@
       </div>
     </div>
   <!-- Header Search Panel -->
-  <div class="header_search_container">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="header_search_content d-flex flex-row align-items-center justify-content-end">
-            <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="Search" placeholder="Search"
-                aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                <%= t ".search" %>
-              </button>
-            </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  
   </header>

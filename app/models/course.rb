@@ -8,5 +8,10 @@ class Course < ApplicationRecord
 
   delegate :name, to: :user, prefix: true, allow_nil: true
   scope :sort_by_created_at, ->{order(created_at: :desc)}
+  scope :search, (lambda do |search|
+    select(:id, :name, :description)
+    .where "name LIKE :q OR description LIKE :q", q: "%#{search}%"
+  end
+  )
   COURSE_PARAMS = %i(name user_id image description).freeze
 end

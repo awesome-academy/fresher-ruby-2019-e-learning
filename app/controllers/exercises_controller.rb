@@ -4,8 +4,13 @@ class ExercisesController < ApplicationController
   before_action :load_exercise, :correct_answers, only: %i(show edit update)
 
   def index
-    @exercises = Exercise.last_exercises.page(params[:page])
-      .per Settings.exercises.paging.paging_number
+    if params[:search].present?
+      @exercises = Exercise.search_exercises(params[:search]).page(params[:page])
+        .per Settings.exercises.paging.paging_number
+    else
+      @exercises = Exercise.last_exercises.page(params[:page])
+        .per Settings.exercises.paging.paging_number
+    end
   end
   
   def new

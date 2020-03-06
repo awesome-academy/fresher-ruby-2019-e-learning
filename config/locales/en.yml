@@ -237,6 +237,7 @@ en:
       word: "Word"
     index:
       all_courses: "All courses"
+      search: "Search"
   words:
     index:
       learned: "Learned"
@@ -253,6 +254,7 @@ en:
     form:
       create_exercise: "Create exercise"
     index:
+      search: "Search"
       date: "Date"
       course: "Course"
       result: "Result"

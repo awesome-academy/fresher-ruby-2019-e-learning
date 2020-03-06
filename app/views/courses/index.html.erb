@@ -2,6 +2,19 @@
 <div class="active">
 <h2 class="headertekst"><%= t ".all_courses" %></h2>
 </div>
+  <div class="details_container">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <%= form_tag courses_path, method: :get, html: {class: "form-inline"} do %>
+        <%= text_field_tag :search, params[:search],placeholder: "Search ...",
+         class: "form-control form-search" %>
+      </div>
+      <div class="col-1">
+        <%= submit_tag t(".search"), class: "btn btn-outline-info" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
   <div class="row courses_row">
     <%= render @courses %>
   </div>

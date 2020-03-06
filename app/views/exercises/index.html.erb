@@ -6,6 +6,19 @@
         <%= link_to t(".create_exercise"), new_exercise_path,
           class: "btn btn-outline-primary", id: "new_exercise" %>
       </div>
+      <div class="details_container">
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <%= form_tag exercises_path, method: :get, html: {class: "form-inline"} do %>
+          <%= text_field_tag :search, params[:search],placeholder: "Search ...",
+          class: "form-control form-search" %>
+        </div>
+        <div class="col-1">
+          <%= submit_tag t(".search"), class: "btn btn-outline-info" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
     </div>
     <div class="row">
       <h1><%= t ".list_exercises" %></h1>
