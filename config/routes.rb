@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   namespace :admin do
     get "/", to: "base#index"
-    resources :words, except: :show
+    resources :words, except: :show 
     resources :courses, except: :show
     resources :users, except: :show
     resources :questions, except: :show
+    post "/import-words", to: "imports#import_words"
+    post "/import-questions", to: "imports#import_questions"
   end
   root "static_pages#home"
   get "/signup", to: "users#new"

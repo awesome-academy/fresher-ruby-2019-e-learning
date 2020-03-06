@@ -5,6 +5,10 @@
       <i class="fa fa-plus"></i>
       <%=  t ".create_question" %>
     <% end %>
+    <%= form_tag admin_import_questions_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag t(".import"), class: "btn btn-outline-info" %>
+    <% end %>
     <div class="card shadow mb-4">
       <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary"><%= t ".question_list" %></h6>

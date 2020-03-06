@@ -2,8 +2,8 @@
   User.create!(
     name: FFaker::Name.name,
     email: FFaker::Internet.email,
-    password: "abc123123",
-    password_confirmation: "abc123123",
+    password: "abc123",
+    password_confirmation: "abc123",
     activated: true,
     activated_at: Time.zone.now
   )
@@ -18,7 +18,7 @@ followers.each { |follower| follower.follow(user) }
 
 User.create!(
   name: "James",
-  email: "james@gmail.com",
+  email: "admin@gmail.com",
   password: "abc123123",
   password_confirmation: "abc123123",
   activated: true,

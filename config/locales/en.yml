@@ -115,8 +115,14 @@ en:
       description: "Description"
       all_courses: "All courses"
   admin:
+    imports:
+      import_questions:
+        import: "Imported"
+      import_words:
+        import: "Imported"
     words:
       index:
+        import: "Import"
         word: "Word"
         word_list: "Word list"
         stt: "Stt"
@@ -198,6 +204,7 @@ en:
         admin: "Admin"
     questions:
       index:
+        import: "Import"
         stt: "Stt"
         question: "Question"
         word: "Word name"
